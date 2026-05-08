@@ -104,7 +104,7 @@
         }
 
         #success-message p {
-            color: #00ff88; /* Un verde vibrante para confirmar el éxito, o cámbialo a #ff1e3c si prefieres mantener todo rojo */
+            color: #ffffff; /* Ahora es blanco, igual que el resto del texto */
             font-size: 1.1rem;
             font-weight: bold;
             margin-bottom: 0;
@@ -119,13 +119,11 @@
     <h1>email</h1>
     <p></p>
 
-    <!-- Añadí un ID al formulario para poder controlarlo con JavaScript -->
     <form id="mi-formulario" action="https://formspree.io/f/xykonjge" method="POST">
         <input type="email" name="email" placeholder="email:email@hotmail.com" required>
         <button type="submit">subscribe</button>
     </form>
 
-    <!-- Este es el mensaje que aparecerá cuando se envíe el correo -->
     <div id="success-message">
         <p>Thank you for your support, you'll hear from me soon...</p>
     </div>
@@ -135,13 +133,12 @@
     </div>
 </div>
 
-<!-- Script para enviar el correo sin salir de la página -->
 <script>
     var form = document.getElementById("mi-formulario");
     var successMessage = document.getElementById("success-message");
 
     form.addEventListener("submit", async function(event) {
-        event.preventDefault(); // Evita que la página recargue o vaya a Formspree
+        event.preventDefault(); 
         
         var data = new FormData(form);
         
@@ -155,10 +152,9 @@
             });
             
             if (response.ok) {
-                // Si se envía bien: oculta el formulario y muestra tu mensaje
                 form.style.display = "none";
                 successMessage.style.display = "block";
-                form.reset(); // Limpia el campo de texto
+                form.reset(); 
             } else {
                 alert("Hubo un problema. Por favor intenta de nuevo.");
             }
