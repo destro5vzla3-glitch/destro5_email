@@ -7,7 +7,11 @@
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0f0f0f;
+            /* Fondo con tu imagen y un gradiente oscuro (Noir) encima para mantener legibilidad */
+            background: linear-gradient(135deg, rgba(15, 0, 5, 0.85) 0%, rgba(0, 0, 0, 0.95) 100%), url('img/photo_5186411960885513284_y.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             color: #ffffff;
             display: flex;
             justify-content: center;
@@ -17,10 +21,14 @@
         }
 
         .container {
-            background: #1a1a1a;
+            /* Efecto cristal oscuro (Glassmorphism) para un look muy profesional */
+            background: rgba(15, 5, 5, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             padding: 2rem;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid rgba(220, 20, 60, 0.2); /* Borde sutil crimson */
+            box-shadow: 0 15px 35px rgba(0,0,0,0.8);
             max-width: 400px;
             width: 90%;
             text-align: center;
@@ -29,22 +37,24 @@
         .cover-art {
             width: 100%;
             aspect-ratio: 1 / 1;
-            background: #333;
+            background: #0a0a0a;
             border-radius: 10px;
             margin-bottom: 1.5rem;
             object-fit: cover;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.7);
         }
 
         h1 {
             font-size: 1.5rem;
             margin-bottom: 0.5rem;
-            color: #00ff88; /* Color vibrante para destacar */
+            color: #ff1e3c; /* Crimson vibrante / Neón oscuro */
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         p {
             font-size: 0.9rem;
-            color: #cccccc;
+            color: #d1d1d1;
             margin-bottom: 1.5rem;
         }
 
@@ -52,11 +62,17 @@
             width: 100%;
             padding: 12px;
             margin-bottom: 1rem;
-            border: none;
+            border: 1px solid rgba(255, 30, 60, 0.3);
             border-radius: 5px;
-            background: #2a2a2a;
+            background: rgba(0, 0, 0, 0.6);
             color: white;
             box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        input[type="email"]:focus {
+            outline: none;
+            border-color: #ff1e3c;
         }
 
         button {
@@ -64,29 +80,31 @@
             padding: 12px;
             border: none;
             border-radius: 5px;
-            background: #00ff88;
-            color: #000;
+            /* Gradiente Crimson para el botón */
+            background: linear-gradient(90deg, #8b0015 0%, #d90429 100%);
+            color: #ffffff;
             font-weight: bold;
+            letter-spacing: 1px;
             cursor: pointer;
-            transition: transform 0.2s, background 0.2s;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
         button:hover {
-            background: #00cc6e;
             transform: scale(1.02);
+            box-shadow: 0 0 15px rgba(217, 4, 41, 0.5); /* Resplandor al pasar el mouse */
         }
 
         .footer {
             margin-top: 1rem;
             font-size: 0.7rem;
-            color: #666;
+            color: #888;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <!-- Reemplaza la URL de la imagen con la ruta de tu portada -->
+    <!-- Tu imagen original -->
     <img src="img/photo_5186411960885513284_y.png" alt="Portada del Álbum" class="cover-art">
     
     <h1>email</h1>
