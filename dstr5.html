@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunidad Musical - Lanzamientos Exclusivos</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0f0f0f;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: #1a1a1a;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+        }
+
+        .cover-art {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background: #333;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            object-fit: cover;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #00ff88; /* Color vibrante para destacar */
+        }
+
+        p {
+            font-size: 0.9rem;
+            color: #cccccc;
+            margin-bottom: 1.5rem;
+        }
+
+        input[type="email"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 1rem;
+            border: none;
+            border-radius: 5px;
+            background: #2a2a2a;
+            color: white;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            background: #00ff88;
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        button:hover {
+            background: #00cc6e;
+            transform: scale(1.02);
+        }
+
+        .footer {
+            margin-top: 1rem;
+            font-size: 0.7rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Reemplaza la URL de la imagen con la ruta de tu portada -->
+    <img src="https://via.placeholder.com/400" alt="Portada del Álbum" class="cover-art">
+    
+    <h1>Únete a la base</h1>
+    <p>Recibe mis últimas producciones y material exclusivo directamente en tu bandeja de entrada.</p>
+
+    <!-- Configuración de Formspree -->
+    <form action="https://formspree.io/f/TU_ID_AQUI" method="POST">
+        <input type="email" name="email" placeholder="Tu correo electrónico" required>
+        <button type="submit">SUSCRIBIRME</button>
+    </form>
+
+    <div class="footer">
+        Prometo no enviar spam, solo buena música.
+    </div>
+</div>
+
+</body>
+</html>
