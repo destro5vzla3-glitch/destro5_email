@@ -7,7 +7,6 @@
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            /* Fondo con tu imagen y un gradiente oscuro (Noir) encima para mantener legibilidad */
             background: linear-gradient(135deg, rgba(15, 0, 5, 0.85) 0%, rgba(0, 0, 0, 0.95) 100%), url('img/photo_5186411960885513284_y.png');
             background-size: cover;
             background-position: center;
@@ -21,13 +20,12 @@
         }
 
         .container {
-            /* Efecto cristal oscuro (Glassmorphism) para un look muy profesional */
             background: rgba(15, 5, 5, 0.6);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             padding: 2rem;
             border-radius: 15px;
-            border: 1px solid rgba(220, 20, 60, 0.2); /* Borde sutil crimson */
+            border: 1px solid rgba(220, 20, 60, 0.2);
             box-shadow: 0 15px 35px rgba(0,0,0,0.8);
             max-width: 400px;
             width: 90%;
@@ -47,7 +45,7 @@
         h1 {
             font-size: 1.5rem;
             margin-bottom: 0.5rem;
-            color: #ff1e3c; /* Crimson vibrante / Neón oscuro */
+            color: #ff1e3c;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
@@ -80,7 +78,6 @@
             padding: 12px;
             border: none;
             border-radius: 5px;
-            /* Gradiente Crimson para el botón */
             background: linear-gradient(90deg, #8b0015 0%, #d90429 100%);
             color: #ffffff;
             font-weight: bold;
@@ -91,7 +88,7 @@
 
         button:hover {
             transform: scale(1.02);
-            box-shadow: 0 0 15px rgba(217, 4, 41, 0.5); /* Resplandor al pasar el mouse */
+            box-shadow: 0 0 15px rgba(217, 4, 41, 0.5);
         }
 
         .footer {
@@ -99,27 +96,77 @@
             font-size: 0.7rem;
             color: #888;
         }
+
+        /* Estilos para el mensaje de éxito */
+        #success-message {
+            display: none; /* Oculto por defecto */
+            margin-top: 1rem;
+        }
+
+        #success-message p {
+            color: #00ff88; /* Un verde vibrante para confirmar el éxito, o cámbialo a #ff1e3c si prefieres mantener todo rojo */
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 0;
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <!-- Tu imagen original -->
     <img src="img/photo_5186411960885513284_y.png" alt="Portada del Álbum" class="cover-art">
     
     <h1>email</h1>
     <p></p>
 
-    <!-- Configuración de Formspree -->
-    <form action="https://formspree.io/f/xykonjge" method="POST">
+    <!-- Añadí un ID al formulario para poder controlarlo con JavaScript -->
+    <form id="mi-formulario" action="https://formspree.io/f/xykonjge" method="POST">
         <input type="email" name="email" placeholder="email:email@hotmail.com" required>
         <button type="submit">subscribe</button>
     </form>
+
+    <!-- Este es el mensaje que aparecerá cuando se envíe el correo -->
+    <div id="success-message">
+        <p>Gracias por apoyarme, pronto sabrás de mí.</p>
+    </div>
 
     <div class="footer">
         Thanks...
     </div>
 </div>
+
+<!-- Script para enviar el correo sin salir de la página -->
+<script>
+    var form = document.getElementById("mi-formulario");
+    var successMessage = document.getElementById("success-message");
+
+    form.addEventListener("submit", async function(event) {
+        event.preventDefault(); // Evita que la página recargue o vaya a Formspree
+        
+        var data = new FormData(form);
+        
+        try {
+            const response = await fetch(form.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            
+            if (response.ok) {
+                // Si se envía bien: oculta el formulario y muestra tu mensaje
+                form.style.display = "none";
+                successMessage.style.display = "block";
+                form.reset(); // Limpia el campo de texto
+            } else {
+                alert("Hubo un problema. Por favor intenta de nuevo.");
+            }
+        } catch (error) {
+            alert("Error de conexión. Revisa tu internet.");
+        }
+    });
+</script>
 
 </body>
 </html>
